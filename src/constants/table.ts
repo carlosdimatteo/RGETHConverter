@@ -3,7 +3,7 @@ export type Unit = {
   str:string
 }
 
-export const conversionTable:{[string]:Unit} = {
+export const conversionTable:{[key:string]:Unit} = {
 	wei: {
 		num: 1,
 		str: '1',
