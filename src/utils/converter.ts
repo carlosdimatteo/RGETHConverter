@@ -33,8 +33,9 @@ export function safeConvertFrom(
 }
 
 function priceConvertOperation(to: number, from: number, amount: number) {
-      return to/from * amount
+      return from/to * amount
 }
+// (window as any ).x = priceConvert
 type priceConversionParamType = {
 	from: { symbol: string; price: number };
 	to: { symbol: string; price: number };
@@ -50,4 +51,8 @@ export function getPriceConversionString({
 	from,
 	to,
 	amount,
-}: priceConversionParamType) {}
+}: priceConversionParamType):string {
+	const result = priceConvertOperation(to.price,from.price,amount) 
+	return `${amount}${from.symbol} : ${result}${to.symbol}`
+
+}
