@@ -9,16 +9,16 @@ export default function App() {
   const [currentFactor,setCurrentFactor] = React.useState({num:1,str:"1"})
   const [price,setPrice] = React.useState<{[key:string]:number}>({})
  
-  React.useEffect( ()=>{
-    async function getPrice() {
-      const apiData = await  CoinMarketCapAPI.getPrices(['eth','raid','dai'])
-      console.log({apiData})
-      setPrice(apiData)
-    }
-    if(!Object.values(price).length){
-      getPrice()
-    }
-  } ,[])
+  // React.useEffect( ()=>{
+  //   async function getPrice() {
+  //     const apiData = await  CoinMarketCapAPI.getPrices(['eth','raid','dai'])
+  //     console.log({apiData})
+  //     setPrice(apiData)
+  //   }
+  //   if(!Object.values(price).length){
+  //     getPrice()
+  //   }
+  // } ,[])
   return (
     <main>
     Convert Units (ETH : {JSON.stringify(price)})
