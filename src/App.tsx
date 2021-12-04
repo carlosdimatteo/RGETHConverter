@@ -11,7 +11,7 @@ export default function App() {
     Convert Units (ETH)
     <br/>
       {Object.entries(conversionTable).map(([name,factor])=>{
-        const typedFactor = factor as Unit
+        const typedFactor = factor as Unit;
         return(<>
         {name} : <input value={ safeConvertFrom(value,currentFactor.num,typedFactor.num)} 
         onChange={({currentTarget:{value:text}}: React.ChangeEvent<HTMLInputElement>)=>{
