@@ -6,15 +6,8 @@ import { PriceObjectType } from '../../types';
 import { PriceCardsContainer } from './Prices.styles';
 
 export function Prices() {
-	const {
-		connect,
-		disconnect,
-		provider,
-		getETHBalance,
-		getRAIDBalance,
-		getDAIBalance,
-		ready,
-	} = useWeb3();
+	const { getETHBalance, getRAIDBalance, getDAIBalance, ready, provider } =
+		useWeb3();
 
 	const [price, setPrice] = useState<PriceObjectType>({
 		eth: null,
@@ -26,7 +19,6 @@ export function Prices() {
 		raid: null,
 		dai: null,
 	});
-
 	useEffect(() => {
 		async function getPrice() {
 			const apiData = await CoinMarketCapAPI.getPrices(['eth', 'raid', 'dai']);
@@ -36,14 +28,16 @@ export function Prices() {
 		if (!Object.values(price).length) {
 			getPrice();
 		}
-	}, []);
+	}, [price, provider]);
 
 	useEffect(() => {
+		console.log('check ready', { ready });
 		async function setEthBalance() {
 			const { wei, eth } = await getETHBalance();
 			const { wei: raidWei, raid } = await getRAIDBalance();
 			const { wei: daiWei, dai } = await getDAIBalance();
 			console.log('set eth', { wei, eth, raid, dai });
+			setBalances({ eth: +eth, raid: +raid, dai: +dai });
 		}
 		if (ready) {
 			setEthBalance();
@@ -51,7 +45,9 @@ export function Prices() {
 	}, [ready]);
 	return (
 		<PriceCardsContainer>
-			<Card></Card>
+			<Card>
+				<>Balances: eth Balance : {balances.eth}</>
+			</Card>
 		</PriceCardsContainer>
 	);
 }

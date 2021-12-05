@@ -12,7 +12,7 @@ export function ConverterContent() {
 	});
 	return (
 		<ConverterContainer>
-			{Object.entries(conversionTable).map(([name, factor]) => {
+			{Object.entries(conversionTable).map(([name, factor], index) => {
 				const typedFactor = factor as Unit;
 				return (
 					<Input
@@ -23,6 +23,7 @@ export function ConverterContent() {
 							setCurrentFactor(typedFactor);
 						}}
 						label={name}
+						key={`${index}-${name}`}
 					/>
 				);
 			})}

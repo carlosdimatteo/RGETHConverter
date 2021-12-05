@@ -9,6 +9,11 @@ export const CardContainer = styled.div`
 	justify-content: left;
 	flex-wrap: wrap;
 	background: transparent;
+	color: ${({
+		theme: {
+			colors: { secondary },
+		},
+	}) => secondary};
 	border: 1px solid
 		${({
 			theme: {
