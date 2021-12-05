@@ -7,7 +7,6 @@ export function WalletInfo({
 	handleWalletConnection,
 	address,
 }: WalletInfoProps) {
-	console.log(!!address);
 	return (
 		<Container>
 			<StyledButton
