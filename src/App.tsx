@@ -9,7 +9,6 @@ import { Header } from './containers/Header';
 import { Content } from './containers/Content';
 import { useWeb3 } from './hooks/useWeb3';
 export default function App() {
-	const { connect, disconnect, provider, getETHBalance, ready } = useWeb3();
 	// useEffect( ()=>{
 	//   async function getPrice() {
 	//     const apiData = await  CoinMarketCapAPI.getPrices(['eth','raid','dai'])
