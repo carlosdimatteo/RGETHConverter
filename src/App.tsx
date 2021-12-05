@@ -7,7 +7,30 @@ import { ConverterTheme } from './theme';
 import { safeConvertFrom } from './utils/converter';
 import { Header } from './containers/Header';
 import { Content } from './containers/Content';
+import { useWeb3 } from './hooks/useWeb3';
 export default function App() {
+	const { connect, disconnect, provider, getETHBalance, ready } = useWeb3();
+	// useEffect( ()=>{
+	//   async function getPrice() {
+	//     const apiData = await  CoinMarketCapAPI.getPrices(['eth','raid','dai'])
+	//     console.log({apiData})
+	//     setPrice(apiData)
+	//   }
+	//   if(!Object.values(price).length){
+	//     getPrice()
+	//   }
+	// } ,[])
+
+	// useEffect(() => {
+	// 	async function setEthBalance() {
+	// 		const { wei, eth } = await getETHBalance();
+	// 		setValue(wei?.toString());
+	// 		console.log('set eth', wei.toString());
+	// 	}
+	// 	if (ready) {
+	// 		setEthBalance();
+	// 	}
+	// }, [ready]);
 	return (
 		<ThemeProvider theme={ConverterTheme}>
 			<GlobalStyle />

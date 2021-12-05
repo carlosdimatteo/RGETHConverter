@@ -1,51 +1,51 @@
 export type Unit = {
-  num:number,
-  str:string
-}
+	num: number;
+	str: string;
+};
 
-export const conversionTable:{[key:string]:Unit} = {
+export const conversionTable: { [key: string]: Unit } = {
 	wei: {
 		num: 1,
 		str: '1',
 	},
 	kwei: {
-		num: 3,
+		num: 4,
 		str: '1000',
 	},
 	mwei: {
-		num: 6,
+		num: 7,
 		str: '1000000',
 	},
 	gwei: {
-		num: 9,
+		num: 10,
 		str: '1000000000',
 	},
 	microether: {
-		num: 12,
+		num: 13,
 		str: '1000000000000',
 	},
 	milliether: {
-		num: 15,
+		num: 16,
 		str: '1000000000000000',
 	},
 	ether: {
-		num: 18,
+		num: 19,
 		str: '1000000000000000000',
 	},
 	kether: {
-		num: 21,
+		num: 22,
 		str: '1000000000000000000000',
 	},
 	mether: {
-		num: 24,
+		num: 25,
 		str: '1000000000000000000000000',
 	},
 	gether: {
-		num: 27,
+		num: 28,
 		str: '1000000000000000000000000000',
 	},
 	tether: {
-		num: 30,
+		num: 31,
 		str: '1000000000000000000000000000000',
 	},
 };
