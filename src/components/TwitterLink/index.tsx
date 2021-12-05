@@ -1,16 +1,25 @@
-import React from 'react';
-import { Container, TwitterLogoContainer } from './TwitterLink.styles';
-import { ReactComponent as TwitterLogo } from '../../assets/twitterLogo.svg';
+import { useState } from 'react';
+import {
+	Container,
+	TwitterLogoContainer,
+	StyledTwitterLogo,
+	StyledSpan,
+} from './TwitterLink.styles';
 import { TwitterLinkProps } from './types';
-import { Span } from '../common/Span/Span';
 
 export function TwitterLink({ username }: TwitterLinkProps) {
+	const [hovered, setHovered] = useState<boolean>(false);
 	return (
-		<Container target="_blank" href={`https://twitter.com/${username}`}>
+		<Container
+			target="_blank"
+			href={`https://twitter.com/${username}`}
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+		>
 			<TwitterLogoContainer>
-				<TwitterLogo />
+				<StyledTwitterLogo hovered={hovered} />
 			</TwitterLogoContainer>
-			<Span>{`@${username}`}</Span>
+			<StyledSpan hovered={hovered}>{`@${username}`}</StyledSpan>
 		</Container>
 	);
 }

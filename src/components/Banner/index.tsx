@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
 	BannerContainer,
 	Title,
@@ -6,7 +5,7 @@ import {
 	LogoContainer,
 	TitleAndDescription,
 	TwitterUsernamesContainer,
-} from './styles';
+} from './Banner.styles';
 import { ReactComponent as Logo } from '../../assets/s3Logo.svg';
 import { Span } from '../common/Span/Span';
 import { TwitterUsernames } from './constants';

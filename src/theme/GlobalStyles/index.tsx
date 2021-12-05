@@ -11,6 +11,16 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${ConverterTheme.fonts.standard};
   }
 
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
   span {
     font-family: ${ConverterTheme.fonts.standard};
   }
