@@ -28,6 +28,8 @@ export function useWeb3() {
 	const [provider, setProvider] = useState<ethers.providers.Web3Provider>(null);
 	const [signer, setSigner] = useState<ethers.providers.JsonRpcSigner>(null);
 	const [ready, setReady] = useState<boolean>(false);
+	const [address, setAddress] = useState<string>('');
+
 	async function connect() {
 		try {
 			const modalProvider = await web3Modal.connect();
@@ -37,6 +39,8 @@ export function useWeb3() {
 			const signer = await provider.getSigner();
 			setSigner(signer);
 			setReady(true);
+			const address = await signer.getAddress();
+			setAddress(address);
 			(window as any).x = provider;
 		} catch (err) {
 			console.log('err', err);
@@ -87,5 +91,6 @@ export function useWeb3() {
 		getRAIDBalance,
 		getDAIBalance,
 		ready,
+		address,
 	};
 }
