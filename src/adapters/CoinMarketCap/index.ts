@@ -8,12 +8,10 @@ export abstract class CoinMarketCapAPI {
 	): Promise<{ price: number; name: string; symbol: string }> {
 		try {
 			const {
-				data,
 				data: {
 					data: {
 						symbol,
 						name,
-						amount,
 						quote: {
 							USD: { price: floatPrice },
 						},
@@ -23,8 +21,7 @@ export abstract class CoinMarketCapAPI {
 				`${PRICE_CONVERSION_ENDPOINT}?amount=1&symbol=${tokenSymbol}&convert=usd`,
 				headerConfig,
 			);
-			const price = +floatPrice.toFixed(2);
-			// console.log({data,price,symbol,name,amount})
+			const price = +floatPrice;
 			return { price, symbol, name };
 		} catch (e) {
 			console.log({ e });
@@ -36,10 +33,10 @@ export abstract class CoinMarketCapAPI {
 		symbols: availableTokenSymbol[],
 	): Promise<PriceObjectType> {
 		let priceObject: PriceObjectType = { eth: null, raid: null, dai: null };
-		symbols.map(async (symbol: availableTokenSymbol) => {
-			const { price } = await CoinMarketCapAPI.getPrice(symbol);
-			priceObject[symbol] = price;
-		}, {});
+		for (let i = 0; i < symbols.length; i++) {
+			const { price } = await CoinMarketCapAPI.getPrice(symbols[i]);
+			priceObject[symbols[i]] = price;
+		}
 		return priceObject;
 	}
 }

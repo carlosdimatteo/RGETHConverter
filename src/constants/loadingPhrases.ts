@@ -1,0 +1,18 @@
+export const loadingPhrases = [
+	"asking 'when lambo?'...",
+	'getting popcorn...',
+	'making coffe...',
+	'unleashing the dogs...',
+	'buying a bored ape...',
+	'selling a cryptopunk...',
+	'getting 100000% APY from a fishy website...',
+	'winning a giveaway in a random discord DM...',
+	'staking CRO...',
+	'staking some random P2E coin...',
+	'battling axies...',
+	"getting FOMO'ed by crypto twitter...",
+	'hodling shiba...',
+	'getting lost in the definition of blockchain...',
+	'checking gas fees...',
+	'sending #wagmi all over my discord...',
+];

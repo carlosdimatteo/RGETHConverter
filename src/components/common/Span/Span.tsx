@@ -5,7 +5,7 @@ export function Span({
 	children,
 	className,
 }: {
-	children: React.ReactElement | string;
+	children: React.ReactElement | any;
 	className?: string;
 }) {
 	return <SpanComponent className={className}>{children}</SpanComponent>;

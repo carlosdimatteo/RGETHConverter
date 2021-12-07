@@ -4,7 +4,6 @@ export const BannerContainer = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 `;
 
@@ -14,7 +13,7 @@ export const TextAndLogo = styled.div`
 `;
 
 export const Title = styled.h2`
-	font-size: 20px;
+	font-size: 30px;
 	color: ${({
 		theme: {
 			colors: { primary },
@@ -26,7 +25,7 @@ export const Title = styled.h2`
 export const LogoContainer = styled.div`
 	margin-right: 20px;
 	svg {
-		width: 100px;
+		width: 150px;
 		height: 100%;
 	}
 `;
@@ -41,5 +40,5 @@ export const TwitterUsernamesContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 10px;
+	margin-top: 15px;
 `;

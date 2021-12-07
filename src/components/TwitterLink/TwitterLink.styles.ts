@@ -31,6 +31,7 @@ fill: ${primary};
 `;
 
 export const StyledSpan = styled(Span)<{ hovered?: boolean }>`
+	font-size: 15px;
 	${({
 		hovered,
 		theme: {

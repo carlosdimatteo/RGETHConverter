@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { Input } from '../../components/Input';
 import { conversionTable, Unit } from '../../constants/table';
 import { safeConvertFrom } from '../../utils/converter';
-import { ConverterContainer } from './ConverterContent.styles';
+import {
+	ConverterContainer,
+	LabelAndInputContainer,
+	LabelContainer,
+	StyledLabel,
+} from './Converter.styles';
 
-export function ConverterContent() {
+export function Converter() {
 	const [value, setValue] = useState('0');
 	const [currentFactor, setCurrentFactor] = useState({
 		num: 1,
@@ -15,16 +20,19 @@ export function ConverterContent() {
 			{Object.entries(conversionTable).map(([name, factor], index) => {
 				const typedFactor = factor as Unit;
 				return (
-					<Input
-						value={safeConvertFrom(value, currentFactor.num, typedFactor.num)}
-						onChange={(text: string) => {
-							console.log({ text });
-							setValue(text);
-							setCurrentFactor(typedFactor);
-						}}
-						label={name}
-						key={`${index}-${name}`}
-					/>
+					<LabelAndInputContainer key={`${index}-${name}`}>
+						<LabelContainer>
+							<StyledLabel>{name}</StyledLabel>
+						</LabelContainer>
+						<Input
+							value={safeConvertFrom(value, currentFactor.num, typedFactor.num)}
+							onChange={(text: string) => {
+								console.log({ text });
+								setValue(text);
+								setCurrentFactor(typedFactor);
+							}}
+						/>
+					</LabelAndInputContainer>
 				);
 			})}
 		</ConverterContainer>
