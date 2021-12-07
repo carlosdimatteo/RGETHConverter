@@ -2,10 +2,10 @@ import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import {
 	useContext,
-	useEffect,
 	useState,
 	createContext,
 	ReactElement,
+	useEffect,
 } from 'react';
 import { ethers } from 'ethers';
 import { DAI_ABI, DAI_ADDRESS, RAID_ABI, RAID_ADDRESS } from '../constants/abi';
@@ -41,7 +41,6 @@ export function useWeb3State() {
 			const modalProvider = await web3Modal.connect();
 			const provider = new ethers.providers.Web3Provider(modalProvider);
 			setProvider(provider);
-			// console.log({provider})
 			const signer = await provider.getSigner();
 			setSigner(signer);
 			const address = await signer.getAddress();
@@ -107,6 +106,35 @@ export function useWeb3State() {
 			throw e;
 		}
 	}
+
+	async function checkIfWalletIsConnected() {
+		const { ethereum } = window;
+
+		if (!ethereum) {
+			console.log('Make sure you have MetaMask!');
+			return;
+		} else {
+			try {
+				const provider = new ethers.providers.Web3Provider(window.ethereum);
+				const accounts = await ethereum.request({ method: 'eth_accounts' });
+				const account = accounts[0];
+				const signer = provider.getSigner();
+				console.log({ account, signer });
+				if (account && signer) {
+					setAddress(account);
+					setSigner(signer);
+					setProvider(provider);
+				}
+				setReady(true);
+			} catch (err) {
+				console.log('checkIfWalletIsConnected err: ', err);
+			}
+		}
+	}
+
+	useEffect(() => {
+		checkIfWalletIsConnected();
+	}, []);
 
 	return {
 		provider,

@@ -3,10 +3,9 @@ import { GlobalStyle } from './theme/GlobalStyles';
 import { ConverterTheme } from './theme';
 import { Header } from './containers/Header';
 import { Content } from './containers/Content';
-import { ConverterContent } from './containers/Converter';
-import { PriceCardsContainer } from './containers/Prices/Prices.styles';
-import { Prices } from './containers/Prices';
+import { Converter } from './containers/Converter';
 import { Web3Provider } from './hooks/useWeb3';
+import { PricesAndBalances } from './containers/PricesAndBalances';
 export default function App() {
 	return (
 		<Web3Provider>
@@ -14,10 +13,8 @@ export default function App() {
 				<GlobalStyle />
 				<Header />
 				<Content>
-					<>
-						<ConverterContent />
-						<Prices />
-					</>
+					<Converter />
+					<PricesAndBalances />
 				</Content>
 			</ThemeProvider>
 		</Web3Provider>

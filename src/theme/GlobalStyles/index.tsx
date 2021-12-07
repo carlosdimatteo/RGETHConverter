@@ -4,9 +4,13 @@ import { ConverterTheme } from '../';
 export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
+    padding: 50px 250px 0px 250px;
+
     background: ${ConverterTheme.colors.tertiary};
     font-family: ${ConverterTheme.fonts.standard};
   }

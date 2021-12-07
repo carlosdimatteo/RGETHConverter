@@ -26,7 +26,7 @@ export function Banner() {
 					</Span>
 					<TwitterUsernamesContainer>
 						{TwitterUsernames.map((username) => (
-							<TwitterLink username={username} />
+							<TwitterLink username={username} key={username} />
 						))}
 					</TwitterUsernamesContainer>
 				</TitleAndDescription>

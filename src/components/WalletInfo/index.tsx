@@ -1,5 +1,4 @@
 import { shortenAddress } from '../../utils/shortenAddress';
-import { Button } from '../common/Button';
 import { WalletInfoProps } from './types';
 import { Container, StyledButton } from './WalletInfo.styles';
 
