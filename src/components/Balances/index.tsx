@@ -10,13 +10,13 @@ import { Card } from '../common/Card';
 import { Span } from '../common/Span/Span';
 import { Currency } from '../Currency';
 
-export function Balances({ balances, loading }: PricesAndBalancesProps) {
+export function Balances({ ready, balances, loading }: PricesAndBalancesProps) {
 	return (
 		<CardContainer>
 			<Card>
 				<CardContent>
 					<StyledH3>Balances</StyledH3>
-					{loading && (
+					{loading && ready && (
 						<LoaderContainer>
 							<Span>
 								{
@@ -37,6 +37,7 @@ export function Balances({ balances, loading }: PricesAndBalancesProps) {
 								isToken
 							/>
 						))}
+					{!ready && <Span>Connect your wallet to price check your bags</Span>}
 				</CardContent>
 			</Card>
 		</CardContainer>

@@ -124,8 +124,8 @@ export function useWeb3State() {
 					setAddress(account);
 					setSigner(signer);
 					setProvider(provider);
+					setReady(true);
 				}
-				setReady(true);
 			} catch (err) {
 				console.log('checkIfWalletIsConnected err: ', err);
 			}

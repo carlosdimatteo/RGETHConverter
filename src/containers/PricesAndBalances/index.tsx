@@ -49,6 +49,7 @@ export function PricesAndBalances() {
 
 	useEffect(() => {
 		if (ready && prices) {
+			console.log({ ready, prices });
 			setEthBalance();
 		}
 	}, [ready, prices]);
@@ -56,7 +57,7 @@ export function PricesAndBalances() {
 	return (
 		<Container>
 			<Prices prices={prices} loading={loadingPrices} />
-			<Balances balances={balances} loading={loadingBalances} />
+			<Balances ready={ready} balances={balances} loading={loadingBalances} />
 		</Container>
 	);
 }
