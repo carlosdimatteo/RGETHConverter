@@ -15,4 +15,5 @@ export type PricesAndBalancesProps = {
 	};
 	balances?: BalanceType[];
 	loading?: boolean;
+	ready?: boolean;
 };
