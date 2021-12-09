@@ -17,7 +17,6 @@ export default function App() {
 					<Converter />
 					<PricesAndBalances />
 				</Content>
-				<Footer />
 			</ThemeProvider>
 		</Web3Provider>
 	);
